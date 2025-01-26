@@ -1,0 +1,46 @@
+<!-- start table-->
+<div th:if="${not #lists.isEmpty(gameDTOList)}">
+    <div id="task-container" class="card container"
+         style="margin-top:1%; margin-bottom:1%; width: 60%; height:60%; border: none; padding-bottom:2%">
+        <div th:each="gameDTO, iterStat : ${gameDTOList}">
+            <div class="card-body" style="margin-bottom: 8px; margin-bottom: 4px;">
+                <div id="accordion">
+                    <div th:id="'card-' + ${gameDTO.id}" class="card" style="margin-bottom: -4%;">
+                        <div th:id="'heading' + ${iterStat.index}" class="card-header"
+                             style="display: flex; justify-content: space-between; text-align: left;">
+                            <div class="col-sm">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse"
+                                            th:data-target="'#collapse' + ${iterStat.index}"
+                                            aria-expanded="false" aria-controls="'collapse' + ${iterStat.index}">
+                                        <span th:text="${gameDTO.title}"></span>
+                                    </button>
+                                </h5>
+                            </div>
+                        </div>
+                        <div th:id="'collapse' + ${iterStat.index}" class="collapse"
+                             aria-labelledby="'heading' + ${iterStat.index}" data-parent="#accordion">
+                            <div class="card-body">
+                                <div style="text-align: justify;">
+                                    <img th:src="${gameDTO.imgUrl}"/>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                    <span><b>Ano:</b> <span
+                                            th:text="${gameDTO.year}"></span></span><br>
+                                </div>
+
+                                <div style="text-align: justify;">
+                                    <span><b>Descrição</b>
+                                    <p th:text="${gameDTO.shortDescription}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+</div>
+<!-- end table -->

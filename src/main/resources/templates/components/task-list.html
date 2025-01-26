@@ -1,0 +1,31 @@
+<!-- start table-->
+<div th:if="${not #lists.isEmpty(gameListDTOList)}">
+    <div id="task-container" class="card container"
+         style="margin-top:1%; margin-bottom:1%; width: 60%; height:60%; border: none; padding-bottom:2%">
+        <div th:each="gameListDTO, iterStat : ${gameListDTOList}">
+            <div class="card-body" style="margin-bottom: 8px; margin-bottom: 4px;">
+                <div id="accordion">
+                    <div th:id="'card-' + ${gameListDTO.id}" class="card" style="margin-bottom: -4%;">
+                        <div th:id="'heading' + ${iterStat.index}" class="card-header"
+                             style="display: flex; justify-content: space-between; text-align: left;">
+                            <div class="col-sm">
+                                <h5 class="mb-0">
+                                    <form th:action="@{/lists/{listId}/games(listId=${gameListDTO.id})}" method="get" style="display:inline;">
+                                    <button class="btn btn-link" data-toggle="collapse"
+                                            th:data-target="'#collapse' + ${iterStat.index}"
+                                            aria-expanded="false" aria-controls="'collapse' + ${iterStat.index}">
+                                        <span th:text="${gameListDTO.name}"></span>
+                                    </button>
+                                    </form>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+</div>
+<!-- end table -->
