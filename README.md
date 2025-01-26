@@ -1,8 +1,8 @@
-<h2> Sistema de Consulta Veiculos em Spring, com api Tabela Fipe</h2>
+<h2> DSlist baseado no curso Intensivão Java Spring Nélio Alves</h2>
 
 Para clonar o projeto(com GitHub Cli)
 ```
-gh repo clone claudioneves1981/tabelafipe
+gh repo clone claudioneves1981/dslist
 ```
 
 Para executar o projeto no terminal, digite o seguinte comando:
